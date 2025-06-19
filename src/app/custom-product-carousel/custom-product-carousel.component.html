@@ -1,4 +1,4 @@
-
+<div class="carousel-container">
 <cx-carousel
   *ngIf="items$ | async as items"
   role="region"
@@ -15,3 +15,4 @@
 <ng-template #carouselItem let-item="item">
     <app-custom-product-carousel-item [item]="item"></app-custom-product-carousel-item>
 </ng-template>
+</div>

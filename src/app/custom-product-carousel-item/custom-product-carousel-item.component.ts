@@ -16,5 +16,5 @@ import { ProductCarouselItemComponent, ProductListItemContext, ProductListItemCo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomProductCarouselItemComponent extends ProductCarouselItemComponent{
-/* PRIMARY:  */
+PRIMARY: any;
 }
