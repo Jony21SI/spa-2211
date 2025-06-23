@@ -15,7 +15,6 @@ export class CustomProductCarouselComponent extends ProductCarouselComponent{
     protected component:CmsComponentData<any>,
     protected override productService:ProductService
   )
-  //this.items iterar
   {
     super(component,productService);
     this.title$.subscribe(text=>{console.log(text)})

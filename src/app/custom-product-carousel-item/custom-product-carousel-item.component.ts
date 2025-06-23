@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, SimpleChanges } from '@angular/core';
 import { ProductCarouselItemComponent, ProductListItemContext, ProductListItemContextSource } from '@spartacus/storefront';
 
 @Component({
@@ -16,5 +16,16 @@ import { ProductCarouselItemComponent, ProductListItemContext, ProductListItemCo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomProductCarouselItemComponent extends ProductCarouselItemComponent{
-PRIMARY: any;
+  modifiedItem: any;
+
+  override ngOnChanges(changes: SimpleChanges): void {
+    if (changes['item'] && this.item){
+      this.modifiedItem = {
+        ...this.item,
+        name: this.item.name?.toUpperCase(),
+        description:"This is a custom description for " + this.item.name,
+      }
+    }
+    
+  }
 }

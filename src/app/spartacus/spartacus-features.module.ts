@@ -17,8 +17,8 @@ import { SmartEditFeatureModule } from './features/smartedit/smart-edit-feature.
 import { ProductVariantsFeatureModule } from './features/product/product-variants-feature.module';
 import { ProductImageZoomFeatureModule } from './features/product/product-image-zoom-feature.module';
 import { MiniCartCustomModule } from '../mini-cart-custom/mini-cart-custom.module';
-import { CustomProductCarouselComponent } from '../custom-product-carousel/custom-product-carousel.component';
 import { CustomProductCarouselModule } from '../custom-product-carousel/custom-product-carousel.module';
+import { StaticComponentModule } from '../static-component/static-component.module';
 
 @NgModule({
   declarations: [],
@@ -89,6 +89,7 @@ import { CustomProductCarouselModule } from '../custom-product-carousel/custom-p
     ProductImageZoomFeatureModule,
     MiniCartCustomModule,
     CustomProductCarouselModule,
+    StaticComponentModule
   ],
   providers: [provideFeatureToggles({
     "showDeliveryOptionsTranslation": true,

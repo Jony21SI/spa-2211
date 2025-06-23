@@ -1,27 +1,22 @@
-<!-- {{item | json}} --><!-- 
-<img [src]="item.images?.[PRIMARY]?.thumbail?.url" alt="Primary Image"> -->
-<!-- <img [src]="item.images?.[PRIMARY]?.thumbail?.url" alt="Primary Image"> -->
-<!--  <div>
-    <p>Product 1</p>
-    <img [src]="item.images?.[PRIMARY]?.thumbail?.url" alt="Primary Image">
- </div> -->
 
  <div class="carousel-item">
-    <a class="card" tabindex="0" [routerLink]="{ cxRoute: 'product', params: item } | cxUrl">
+    <a class="card" tabindex="0" [routerLink]="{ cxRoute: 'product', params: modifiedItem} | cxUrl">
     <cx-media
         [container]="item.images?.['PRIMARY']"
         format="product"
-        [alt]="item.name ?? ''"
+        [alt]="modifiedItem.name ?? ''"
     ></cx-media>
     <h3 class="cx-product-name">
-        {{ item.name }}
+        {{ modifiedItem.name }}
     </h3>
+    <h4 class="description">
+        {{ modifiedItem.description }}
+    </h4>
     <div class="price">
-        {{ item.price?.formattedValue }}
+        {{ modifiedItem?.formattedValue }}
     </div>
+
     </a>
 </div>
 
-<!-- <div class="actions">
-  <ng-container cxInnerComponentsHost></ng-container>
-</div> -->
+
