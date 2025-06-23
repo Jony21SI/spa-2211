@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AnonymousConsentsModule, AuthModule, CostCenterOccModule, ExternalRoutesModule, ProductModule, ProductOccModule, provideFeatureToggles, UserModule, UserOccModule } from "@spartacus/core";
+import { AnonymousConsentsModule, AuthModule, CostCenterOccModule, ExternalRoutesModule, ProductModule, ProductOccModule, provideConfig, provideFeatureToggles, UserModule, UserOccModule } from "@spartacus/core";
 import { AnonymousConsentManagementBannerModule, AnonymousConsentsDialogModule, BannerCarouselModule, BannerModule, BreadcrumbModule, CategoryNavigationModule, CmsParagraphModule, ConsentManagementModule, FooterNavigationModule, HamburgerMenuModule, HomePageEventModule, LinkModule, LoginRouteModule, LogoutModule, MyAccountV2Module, MyCouponsModule, MyInterestsModule, NavigationEventModule, NavigationModule, NotificationPreferenceModule, PageTitleModule, PaymentMethodsModule, PDFModule, ProductCarouselModule, ProductDetailsPageModule, ProductFacetNavigationModule, ProductImagesModule, ProductIntroModule, ProductListingPageModule, ProductListModule, ProductPageEventModule, ProductReferencesModule, ProductSummaryModule, ProductTabsModule, ScrollToTopModule, SearchBoxModule, SiteContextSelectorModule, SiteThemeSwitcherModule, StockNotificationModule, TabParagraphContainerModule, VideoModule } from "@spartacus/storefront";
 import { UserFeatureModule } from './features/user/user-feature.module';
 import { CartBaseFeatureModule } from './features/cart/cart-base-feature.module';
@@ -19,6 +19,7 @@ import { ProductImageZoomFeatureModule } from './features/product/product-image-
 import { MiniCartCustomModule } from '../mini-cart-custom/mini-cart-custom.module';
 import { CustomProductCarouselModule } from '../custom-product-carousel/custom-product-carousel.module';
 import { StaticComponentModule } from '../static-component/static-component.module';
+import { CustomProductSummaryModule } from '../custom-product-summary/custom-product-summary.module';
 
 @NgModule({
   declarations: [],
@@ -89,9 +90,18 @@ import { StaticComponentModule } from '../static-component/static-component.modu
     ProductImageZoomFeatureModule,
     MiniCartCustomModule,
     CustomProductCarouselModule,
-    StaticComponentModule
+    StaticComponentModule,
+    CustomProductSummaryModule
   ],
-  providers: [provideFeatureToggles({
+  providers: [
+    provideConfig({
+      featureModules:{
+        CustomProductSummaryModule:{
+        module:()=>import('../custom-product-summary/custom-product-summary.module').then(m=>m.CustomProductSummaryModule),
+        cmsComponents:['ProductSummaryComponent']
+      }
+    }}),
+    provideFeatureToggles({
     "showDeliveryOptionsTranslation": true,
     "formErrorsDescriptiveMessages": true,
     "showSearchingCustomerByOrderInASM": true,
