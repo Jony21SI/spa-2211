@@ -20,6 +20,8 @@ import { MiniCartCustomModule } from '../mini-cart-custom/mini-cart-custom.modul
 import { CustomProductCarouselModule } from '../custom-product-carousel/custom-product-carousel.module';
 import { StaticComponentModule } from '../static-component/static-component.module';
 import { CustomProductSummaryModule } from '../custom-product-summary/custom-product-summary.module';
+import { StaticPageModule } from '../static-page/static-page.module';
+import { CustomRoutingModule } from '../custom-routing/custom-routing.module';
 
 @NgModule({
   declarations: [],
@@ -91,7 +93,9 @@ import { CustomProductSummaryModule } from '../custom-product-summary/custom-pro
     MiniCartCustomModule,
     CustomProductCarouselModule,
     StaticComponentModule,
-    CustomProductSummaryModule
+    CustomProductSummaryModule,
+    StaticPageModule,
+    CustomRoutingModule
   ],
   providers: [
     provideConfig({
